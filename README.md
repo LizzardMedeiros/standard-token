@@ -9,3 +9,9 @@ A simple ERC20 and other pattern template for tokens open-zeppelin based
 
 #### Install dependences
 - `npm i`
+
+#### Commands
+
+- Compile contracts: `truffle compile`
+- Migrate contracts: `truffle migrate`
+- Test contracts:    `truffle test`
