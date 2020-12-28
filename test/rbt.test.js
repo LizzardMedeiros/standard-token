@@ -1,13 +1,13 @@
-const LZT = artifacts.require("LizzardToken");
+const CONTRACT = artifacts.require("RBT");
 
 /* Configurations */
-const TOKEN_NAME = 'LizzardToken';
-const TOKEN_SYMBOL = 'LZT';
-const TOTAL_SUPPLY = '1000000000';
+const TOKEN_NAME = 'Reibit';
+const TOKEN_SYMBOL = 'RBT';
+const TOTAL_SUPPLY = '210000000';
 
-contract('LZT', ([ programmer, owner ]) => {
-  it('Testing contract name and symbol', async () => {E;
-    const { name, symbol } = await LZT.deployed();
+contract(TOKEN_SYMBOL, ([ programmer, owner ]) => {
+  it('Testing contract name and symbol', async () => {;
+    const { name, symbol } = await CONTRACT.deployed();
 
     const curName = await name.call();
     const curSymbol = await symbol.call();
@@ -17,14 +17,14 @@ contract('LZT', ([ programmer, owner ]) => {
   });
 
   it('Testing token supplies', async () => {
-    const { balanceOf, decimals } = await LZT.deployed();
+    const { balanceOf, decimals } = await CONTRACT.deployed();
     const curAmount = web3.utils.fromWei(await balanceOf.call(programmer), 'ether');
     const dc = await decimals.call();
     assert.equal(curAmount, TOTAL_SUPPLY, `Initial supply is incorrect.`);
   });
 
   it('Testing supply transference', async () => {
-    const { balanceOf, transfer } = await LZT.deployed();
+    const { balanceOf, transfer } = await CONTRACT.deployed();
 
     const totalSupply = web3.utils.toWei(TOTAL_SUPPLY, 'ether');
     let programmerAmount = await balanceOf.call(programmer);
@@ -48,7 +48,7 @@ contract('LZT', ([ programmer, owner ]) => {
     const {
       transferOwnership,
       owner: currentOwner,
-    } = await LZT.deployed();
+    } = await CONTRACT.deployed();
 
     let cOwner = await currentOwner.call();
     assert.equal(cOwner, programmer, `Programmer have to be the current owner`);

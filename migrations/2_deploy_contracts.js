@@ -1,5 +1,5 @@
-const LZT = artifacts.require("LizzardToken");
+const CONTRACT = artifacts.require("RBT");
 
 module.exports = function(deployer) {
-  deployer.deploy(LZT);
+  deployer.deploy(CONTRACT);
 };
